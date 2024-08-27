@@ -1,19 +1,7 @@
 import React, { useState } from 'react';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-
-const LOGIN_MUTATION = gql`
-  mutation Login($username: String!, $password: String!) {
-    obtainToken(username: $username, password: $password) {
-      token
-      user {
-        id
-        email
-        username
-      }
-    }
-  }
-`;
+import { LOGIN_MUTATION } from '../services/loginService';
 
 function Login() {
   const [formData, setFormData] = useState({

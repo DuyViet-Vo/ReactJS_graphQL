@@ -1,15 +1,9 @@
 // src/components/Register.js
 import React, { useState } from 'react';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
+import { REGISTER_MUTATION } from '../services/registerService';
 
-const REGISTER_MUTATION = gql`
-  mutation Register($email: String!, $password: String!, $username: String!, $address: String!) {
-    register(email: $email, password: $password, username: $username, address: $address) {
-      token
-    }
-  }
-`;
 
 function Register() {
   const [formData, setFormData] = useState({
